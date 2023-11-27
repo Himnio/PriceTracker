@@ -1,4 +1,5 @@
 "use client"
+import { scrapAndStoreProduct } from '@/lib/actions';
 import React, { FormEvent, useState } from 'react'
 
 
@@ -9,9 +10,9 @@ const isValidAmazoneProductUrl =(url: string)=>{
     const hostname = pasedURL.hostname;
 
     if(
-      hostname.includes("amazone.com")||
-      hostname.includes("amazone.")||
-      hostname.includes("amazone")
+      hostname.includes('amazon.com')||
+      hostname.includes('amazon.')||
+      hostname.includes('amazon')
     ){
       return true;
     }
@@ -36,7 +37,7 @@ const Searchbar = () => {
       try {
         setIsLoading(true);
         //Scrap the product page 
-        console.log ("Valide Link");
+        const product = await scrapAndStoreProduct(searchPromt);
         
       } catch (error) {
         
