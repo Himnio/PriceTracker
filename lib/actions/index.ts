@@ -18,7 +18,7 @@ export async function scrapAndStoreProduct(productUrl: string) {
 
     let product = scrapedProduct;
 
-    const existingProduct = await Product.findOne({ url: scrapedProduct.url });
+    const existingProduct = await Product.findOne({ url: scrapedProduct.url }).maxTimeMS(20000);;
 
     if (existingProduct) {
       const updatedPriceHistory: any = [
@@ -51,7 +51,7 @@ export async function getProductById(productId: string) {
   try {
     connectToDB();
 
-    const product = await Product.findOne({ _id: productId });
+    const product = await Product.findOne({ _id: productId }).maxTimeMS(20000);;
 
     if (!product) return null;
 
@@ -65,7 +65,7 @@ export async function getAllProducts() {
   try {
     connectToDB();
 
-    const products = await Product.find();
+    const products = await Product.find().maxTimeMS(20000);
 
     return products;
   } catch (error) {
@@ -77,7 +77,7 @@ export async function getSimilarProducts(productId: string) {
   try {
     connectToDB();
 
-    const currentProduct = await Product.findById(productId);
+    const currentProduct = await Product.findById(productId).maxTimeMS(20000);;
 
     if (!currentProduct) return null;
 
@@ -96,7 +96,7 @@ export async function addUserEmailToProduct(
   userEmail: string
 ) {
   try {
-    const product = await Product.findById(productID);
+    const product = await Product.findById(productID).maxTimeMS(20000);;
 
     if (!product) return;
     const userExists = product.users.some(
