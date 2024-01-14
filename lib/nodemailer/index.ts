@@ -10,10 +10,10 @@ export const Notification = {
   THRESHOLD_MET: "THRESHOLD_MET",
 };
 
-export const generateEmailBody = (
+export async function generateEmailBody(
   product: EmailProductInfo,
   type: NotificationType
-) => {
+){
   const shortenedTitle =
     product.title.length > 20
       ? `${product.title.substring(0, 20)}...`
