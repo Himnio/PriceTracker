@@ -10,7 +10,7 @@ const SpaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'Pricetracker',
+  title: 'Kora Price Track',
   description: 'Track the product price effortlessly and save your valueable money on product',
 }
 
