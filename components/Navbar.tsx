@@ -21,7 +21,7 @@ const Navbar = () => {
           alt='Logo'
         />
         <p className='nav-logo'>
-        Price <span className='text-primary'>Tracker</span>
+        Kora Price<span className='text-primary'> Track</span>
         </p>
       </Link>
       <div className='flex items-center gap-5'>
